@@ -10,7 +10,7 @@ module Rack
       attr_reader :content_length, :new_body, :livereload_added
 
       def protocol
-        @options[:protocol] || "http"
+        @options[:protocol] || @env['HTTP_HTTP_X_FORWARDED_PROTO'] || "http"
       end
 
       def livereload_local_uri
